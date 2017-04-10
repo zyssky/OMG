@@ -3,13 +3,20 @@ package com.example.administrator.omg;
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.internal.BottomNavigationItemView;
+import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.Window;
+import android.widget.FrameLayout;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
@@ -27,6 +34,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+//        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+
         context = this;
         initFragments();
         initNavigationView();
@@ -41,10 +50,13 @@ public class MainActivity extends AppCompatActivity  {
         fragments.add(AccountFragment.newInstance());
 
         curFragment = fragments.get(0);
+
         getSupportFragmentManager().beginTransaction().add(R.id.container,curFragment).commit();
+
     }
 
     void initNavigationView(){
+
         navigationItemView = (BottomNavigationView) findViewById(R.id.bottomNavigationView);
 
         navigationItemView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -66,6 +78,7 @@ public class MainActivity extends AppCompatActivity  {
                 return true;
             }
         });
+
     }
 
     public void switchContent(Fragment from, Fragment to) {
