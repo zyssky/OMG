@@ -17,8 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.youth.banner.Banner;
 
 import java.lang.reflect.Field;
@@ -26,6 +28,8 @@ import java.lang.reflect.Field;
 
 public class HomeFragment extends Fragment {
     public String TAG = Fragment.class.getSimpleName();
+
+    private View rootView;
 
     private CardView badminton;
     private CardView tabletennis;
@@ -57,7 +61,7 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
         Log.d(TAG, "onCreateView: ");
 
-        View rootView = inflater.inflate(R.layout.fragment_home, container, false);
+        rootView = inflater.inflate(R.layout.fragment_home, container, false);
 
         initBanner(rootView);
 
@@ -65,9 +69,27 @@ public class HomeFragment extends Fragment {
 
         initCardViews(rootView);
 
+
         initNavigationView(rootView);
 
         return rootView;
+    }
+
+    private void testLoadImages(Context context) {
+        ImageView view1 = (ImageView) badminton.findViewById(R.id.badminton_image);
+        ImageView view2 = (ImageView) tabletennis.findViewById(R.id.tabletennis_image);
+        ImageView view3 = (ImageView) tennis.findViewById(R.id.tennis_image);
+        ImageView view4 = (ImageView) basketball.findViewById(R.id.basketball_image);
+        ImageView view5 = (ImageView) football.findViewById(R.id.football_image);
+        ImageView view6 = (ImageView) swimming.findViewById(R.id.swimming_image);
+
+        Glide.with(context).load(R.drawable.badminton).into(view1);
+        Glide.with(context).load(R.drawable.basketball).into(view2);
+        Glide.with(context).load(R.drawable.tabletennis).into(view3);
+        Glide.with(context).load(R.drawable.tennis).into(view4);
+        Glide.with(context).load(R.drawable.football).into(view5);
+        Glide.with(context).load(R.drawable.swimming).into(view6);
+
     }
 
     private void initCardViews(View rootView) {
@@ -83,6 +105,8 @@ public class HomeFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initListenersOnCardViews(new CardViewListeners(getActivity()));
+        testLoadImages(getContext());
+
     }
 
     private void initListenersOnCardViews(View.OnClickListener cardViewListeners) {
@@ -160,7 +184,7 @@ class CardViewListeners implements View.OnClickListener{
     }
 }
 
-// 利用发射机制，改变 item 的 mShiftingMode 变量
+// 利用反射机制，改变 item 的 mShiftingMode 变量
 class BottomNavigationViewHelper {
     public static void disableShiftMode(BottomNavigationView navigationView) {
         BottomNavigationMenuView menuView =

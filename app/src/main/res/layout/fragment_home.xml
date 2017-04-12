@@ -1,12 +1,16 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.example.administrator.omg.HomeFragment">
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--xmlns:app="http://schemas.android.com/apk/res-auto"-->
+    <!--tools:context="com.example.administrator.omg.HomeFragment">-->
 
     <!-- TODO: Update blank fragment layout -->
     <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        tools:context="com.example.administrator.omg.HomeFragment"
         android:id="@+id/scrollview"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -50,13 +54,161 @@
             android:gravity="center"
             android:text="@string/quick_book" />
 
-        <!--<Button-->
-            <!--android:text="testPlaceOrder"-->
-            <!--android:id="@+id/testPlaceOrder"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"/>-->
 
         <include layout="@layout/fields_category"/>
+
+        <!--<ImageView-->
+            <!--android:id="@+id/test1"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/test2"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/test3"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/test4"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/test5"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--<ImageView-->
+            <!--android:id="@+id/test6"-->
+            <!--android:layout_width="100dp"-->
+            <!--android:layout_height="100dp"-->
+            <!--android:scaleType="fitXY"/>-->
+
+        <!--finish-->
+
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/badminton"-->
+                <!--style="@style/cardView">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/badminton"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/badminton"-->
+                    <!--android:textColor="@color/layout_background"-->
+                    <!--android:text="@string/badminton"/>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/basketball"-->
+                <!--style="@style/cardView">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/basketball"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/basketball"-->
+                    <!--android:textColor="@color/layout_background"-->
+                    <!--android:text="@string/basketball"/>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/swimming"-->
+                <!--style="@style/cardView">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/swimming"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/swimming"-->
+                    <!--android:textColor="@color/layout_background"-->
+                    <!--android:text="@string/swimming"/>-->
+            <!--</android.support.v7.widget.CardView>-->
+
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/tabletennis"-->
+                <!--style="@style/cardView">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/tabletennis"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/tabletennis"-->
+                    <!--android:textColor="@color/layout_background"-->
+                    <!--android:text="@string/tabletennis"/>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/tennis"-->
+                <!--style="@style/cardView">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/tennis"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/tennis"-->
+                    <!--android:textColor="@color/layout_background"-->
+                    <!--android:text="@string/tennis"/>-->
+
+            <!--</android.support.v7.widget.CardView>-->
+
+            <!--<android.support.v7.widget.CardView-->
+                <!--android:id="@+id/football"-->
+                <!--style="@style/cardView">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent"-->
+                    <!--android:scaleType="fitXY"-->
+                    <!--android:src="@drawable/football"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@color/football"-->
+                    <!--android:textColor="@color/layout_background"-->
+                    <!--android:text="@string/football"/>-->
+
+            <!--</android.support.v7.widget.CardView>-->
 
         </LinearLayout>
 
@@ -67,4 +219,4 @@
     </ScrollView>
 
 
-</FrameLayout>
+<!--</FrameLayout>-->
