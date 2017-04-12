@@ -22,10 +22,10 @@
             app:contentScrim="?attr/colorPrimary"
             app:expandedTitleMarginEnd="64dp"
             app:expandedTitleMarginStart="48dp"
-            app:title="羽毛球"
+            app:title="标题栏"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
             <ImageView
-                android:src="@drawable/image5"
+                android:id="@+id/barImage"
                 app:layout_scrollFlags="scroll|enterAlways|enterAlwaysCollapsed"
                 android:layout_width="wrap_content"
                 android:layout_height="200dp"

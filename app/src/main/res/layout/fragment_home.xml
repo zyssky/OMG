@@ -50,13 +50,17 @@
             android:gravity="center"
             android:text="@string/quick_book" />
 
-        <Button
-            android:text="testPlaceOrder"
-            android:id="@+id/testPlaceOrder"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+        <!--<Button-->
+            <!--android:text="testPlaceOrder"-->
+            <!--android:id="@+id/testPlaceOrder"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"/>-->
+
+        <include layout="@layout/fields_category"/>
 
         </LinearLayout>
+
+
 
 
 

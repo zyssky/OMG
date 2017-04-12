@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">OMG</string>
+    <string name="app_name">海印又一城体育汇</string>
     <string name="home">首页</string>
     <string name="orders">订单</string>
     <string name="account">我的</string>
@@ -19,6 +19,42 @@
     <string name="field_desc_title">场地信息</string>
     <string name="field_desc_content">替换为具体的描述信息，譬如：羽毛球场地为室内场馆，24小时灯光照射，地板为橡胶地板
                                         符合国家标准等等。。。。。。</string>
+
+    <string name="badminton">羽毛球</string>
+    <string name="tabletennis">乒乓球</string>
+    <string name="basketball">篮球</string>
+    <string name="football">足球</string>
+    <string name="swimming">游泳</string>
+    <string name="tennis">网球</string>
+
+    <string name="badminton_service">羽毛球服务</string>
+    <string name="tabletennis_service">乒乓球服务</string>
+    <string name="basketball_service">篮球服务</string>
+    <string name="football_service">足球服务</string>
+    <string name="swimming_service">游泳服务</string>
+    <string name="tennis_service">网球服务</string>
+
+    <string name="badminton_introduction">羽毛球介绍</string>
+    <string name="tabletennis_introduction">乒乓球介绍</string>
+    <string name="basketball_introduction">篮球介绍</string>
+    <string name="football_introduction">足球介绍</string>
+    <string name="swimming_introduction">游泳介绍</string>
+    <string name="tennis_introduction">网球介绍</string>
+
+    <string name="login">登录</string>
+    <string name="quan">优惠券</string>
+    <string name="jifen">积分兑换</string>
+    <string name="logout">退出登录</string>
+
+    <string name="hint_login_username">请输入账号</string>
+    <string name="hint_login_password">输入密码</string>
+    <string name="login_forget_pwd">忘记密码</string>
+    <string name="please_input_limit_pwd">请输入数字或字母</string>
+    <string name="register">注册</string>
+    <string name="to_register">注册新用户</string>
+    <string name="hint_login_password_confirm">再次输入密码</string>
+
+
 
     <string name="service_desc_title">服务提供</string>
     <string name="service_desc_content">替换为具体的服务信息：譬如，羽毛球场馆有羽毛球卖，是否免费提供，还是要求，场馆有无WiFi等等</string>

@@ -9,11 +9,12 @@ import java.util.List;
 
 public class TestData {
     public static int[] ids = {
-            R.drawable.image1,
-            R.drawable.image2,
-            R.drawable.image3,
-            R.drawable.image4,
-            R.drawable.image5
+            R.drawable.badminton,
+            R.drawable.tabletennis,
+            R.drawable.tennis,
+            R.drawable.basketball,
+            R.drawable.football,
+            R.drawable.swimming
     };
 
     public static List<Integer> images;

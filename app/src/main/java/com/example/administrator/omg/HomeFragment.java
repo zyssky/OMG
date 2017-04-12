@@ -4,16 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.youth.banner.Banner;
 
@@ -22,6 +26,13 @@ import java.lang.reflect.Field;
 
 public class HomeFragment extends Fragment {
     public String TAG = Fragment.class.getSimpleName();
+
+    private CardView badminton;
+    private CardView tabletennis;
+    private CardView tennis;
+    private CardView basketball;
+    private CardView football;
+    private CardView swimming;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -50,17 +61,59 @@ public class HomeFragment extends Fragment {
 
         initBanner(rootView);
 
-        initTestData(rootView);
+//        initTestData(rootView);
+
+        initCardViews(rootView);
 
         initNavigationView(rootView);
 
         return rootView;
     }
 
+    private void initCardViews(View rootView) {
+        badminton = (CardView) rootView.findViewById(R.id.badminton);
+        tabletennis = (CardView) rootView.findViewById(R.id.tabletennis);
+        tennis = (CardView) rootView.findViewById(R.id.tennis);
+        basketball = (CardView) rootView.findViewById(R.id.basketball);
+        football = (CardView) rootView.findViewById(R.id.football);
+        swimming = (CardView) rootView.findViewById(R.id.swimming);
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        initListenersOnCardViews(new CardViewListeners(getActivity()));
+    }
+
+    private void initListenersOnCardViews(View.OnClickListener cardViewListeners) {
+        badminton.setOnClickListener(cardViewListeners);
+        tabletennis.setOnClickListener(cardViewListeners);
+        tennis.setOnClickListener(cardViewListeners);
+        basketball.setOnClickListener(cardViewListeners);
+        football.setOnClickListener(cardViewListeners);
+        swimming.setOnClickListener(cardViewListeners);
+    }
+
     private void initNavigationView(View rootView) {
         BottomNavigationView navigationview = (BottomNavigationView) rootView.findViewById(R.id.nav_others);
         BottomNavigationViewHelper.disableShiftMode(navigationview);
+        navigationview.setSelectedItemId(R.id.nav_category);
 
+        navigationview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_charge:
+                        break;
+                    case R.id.nav_activity:
+                        break;
+                    case R.id.nav_comment:
+                        break;
+                }
+                return true;
+            }
+
+        });
     }
 
     void initBanner(View rootView){
@@ -70,37 +123,42 @@ public class HomeFragment extends Fragment {
         banner.start();
     }
 
-    void initTestData(View rootView){
-        Button testPlaceOrder = (Button) rootView.findViewById(R.id.testPlaceOrder);
-        testPlaceOrder.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(),PlaceOrderActivity.class);
-                startActivity(intent);
-            }
-        });
-    }
-
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-        Log.d(TAG, "onAttach: ");
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        Log.d(TAG, "onDetach: ");
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        Log.d(TAG, "onStart: ");
-    }
 }
 
+class CardViewListeners implements View.OnClickListener{
+    private Context context;
+
+    public CardViewListeners(Context context){
+        this.context = context;
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(context,PlaceOrderActivity.class);
+
+        switch (v.getId()){
+            case R.id.badminton:
+                intent.putExtra(AppContants.SPORT_NAME,R.id.badminton);
+                break;
+            case R.id.tabletennis:
+                intent.putExtra(AppContants.SPORT_NAME,R.id.tabletennis);
+                break;
+            case R.id.tennis:
+                intent.putExtra(AppContants.SPORT_NAME,R.id.tennis);
+                break;
+            case R.id.basketball:
+                intent.putExtra(AppContants.SPORT_NAME,R.id.basketball);
+                break;
+            case R.id.football:
+                intent.putExtra(AppContants.SPORT_NAME,R.id.football);
+                break;
+            case R.id.swimming:
+                intent.putExtra(AppContants.SPORT_NAME,R.id.swimming);
+                break;
+        }
+        context.startActivity(intent);
+    }
+}
 
 // 利用发射机制，改变 item 的 mShiftingMode 变量
 class BottomNavigationViewHelper {

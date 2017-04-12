@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#009688</color>
+    <!--<color name="colorPrimary">#03a0e7</color>-->
     <color name="colorPrimaryDark">#00796B</color>
     <color name="colorAccent">#448AFF</color>
     <color name="colorNavItemUnselected">#757575</color>
     <color name="layout_background">#fafafa</color>
+    <color name="badminton">#31a208</color>
+    <color name="basketball">#ca5a06</color>
+    <color name="tabletennis">#b00833</color>
+    <color name="tennis">#8da910</color>
+    <color name="football">#800f91</color>
+    <color name="swimming">#074689</color>
+
+    <color name="quan">#f90505</color>
+    <color name="jifen">#ffef0e</color>
+
+    <color name="logout">#e967a509</color>
+
+    <color name="color_999999">#999999</color>
+    <color name="color_eeeeee">#eeeeee</color>
+    <color name="color_ffffff">#ffffff</color>
+    <color name="color_b0b8b2">#b0b8b2</color>
+    <color name="color_c61a04">#c61a04</color>
+    <color name="color_cccccc">#cccccc</color>
+    <color name="color_d81e06">#d81e06</color>
+
+    <color name="price">#e2690d</color>
+
 
 </resources>

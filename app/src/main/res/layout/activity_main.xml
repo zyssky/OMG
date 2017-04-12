@@ -6,12 +6,10 @@
     android:layout_height="match_parent"
     tools:context="com.example.administrator.omg.MainActivity">
 
-    <FrameLayout
-        android:id="@+id/container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"></FrameLayout>
+
 
     <android.support.design.widget.BottomNavigationView
+
         android:layout_width="368dp"
         android:layout_height="wrap_content"
         android:id="@+id/bottomNavigationView"
@@ -26,4 +24,10 @@
         tools:layout_editor_absoluteY="33dp"
         tools:layout_editor_absoluteX="8dp" />
 
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomNavigationView"></FrameLayout>
+    
 </RelativeLayout>
