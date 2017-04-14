@@ -6,10 +6,12 @@
         android:allowBackup="true"
         android:icon="@drawable/logo"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".Home.MainActivity"
+            android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,10 +19,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".PlaceOrderActivity"
+            android:name=".PlaceOrder.PlaceOrderActivity"
             android:label="@string/title_activity_place_order"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".LoginActivity"/>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".Account.LoginActivity" />
+        <activity android:name=".Home.SearchActivity"
+            android:theme="@style/Transparent"
+            android:parentActivityName=".Home.MainActivity"></activity>
     </application>
 
 </manifest>

@@ -14,8 +14,7 @@
                 android:id="@+id/badminton_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/badminton"/>
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -34,8 +33,7 @@
                 android:id="@+id/basketball_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/basketball"/>
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -59,8 +57,7 @@
                 android:id="@+id/swimming_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/swimming"/>
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -79,8 +76,7 @@
                 android:id="@+id/tabletennis_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/tabletennis"/>
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -105,8 +101,7 @@
                 android:id="@+id/tennis_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/tennis"/>
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -125,8 +120,7 @@
                 android:id="@+id/football_image"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/football"/>
+                android:scaleType="fitXY"/>
 
             <TextView
                 android:layout_width="match_parent"

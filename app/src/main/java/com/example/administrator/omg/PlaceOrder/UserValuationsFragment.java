@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.PlaceOrder;
 
 
 import android.os.Bundle;
@@ -9,6 +9,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.example.administrator.omg.R;
+import com.example.administrator.omg.util.SpaceItemDecoration;
+import com.example.administrator.omg.MetaData.Valuation;
 
 import java.util.ArrayList;
 import java.util.List;

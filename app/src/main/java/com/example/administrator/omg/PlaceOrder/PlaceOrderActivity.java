@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.PlaceOrder;
 
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.example.administrator.omg.AppContants;
+import com.example.administrator.omg.R;
 
 import java.util.ArrayList;
 import java.util.List;

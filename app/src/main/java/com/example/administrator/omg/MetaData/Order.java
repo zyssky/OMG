@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.MetaData;
 
 import android.support.annotation.Nullable;
 

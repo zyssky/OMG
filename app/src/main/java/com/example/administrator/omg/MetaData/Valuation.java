@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.MetaData;
 
 /**
  * Created by Administrator on 2017/4/12.

@@ -28,5 +28,6 @@
 
     <color name="price">#e2690d</color>
 
+    <color name = "transparent">#e0000000</color>
 
 </resources>

@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.History;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,28 +6,32 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.administrator.omg.MetaData.Order;
+import com.example.administrator.omg.R;
+
 import java.util.List;
 
 /**
  * Created by Administrator on 2017/4/12.
  */
 
-public class ValuationAdapter extends RecyclerView.Adapter<ValuationAdapter.MyViewHolder> {
-    private List<Valuation> mdatas;
+public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder> {
 
-    public ValuationAdapter(List<Valuation> mdatas){
-        this.mdatas = mdatas;
+    private List<Order> mdatas;
+
+    public OrderAdapter(List<Order> datas){
+        mdatas = datas;
     }
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.valution,parent,false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.order,parent,false);
         return new MyViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.user.setText(mdatas.get(position).getUser());
+        holder.sportType.setText(mdatas.get(position).getSportType());
     }
 
     @Override
@@ -36,16 +40,16 @@ public class ValuationAdapter extends RecyclerView.Adapter<ValuationAdapter.MyVi
     }
 
     public static class MyViewHolder extends RecyclerView.ViewHolder{
-
-        public TextView user;
+        public TextView sportType;
         public TextView date;
-        public TextView content;
+        public TextView time;
+        public TextView price;
+        public TextView desc;
+        public TextView count;
 
         public MyViewHolder(View itemView) {
             super(itemView);
-            user = (TextView) itemView.findViewById(R.id.valuation_user);
-            date = (TextView) itemView.findViewById(R.id.valuation_date);
-            content = (TextView) itemView.findViewById(R.id.valuation_content);
+            sportType = (TextView) itemView.findViewById(R.id.order_title);
         }
     }
 }

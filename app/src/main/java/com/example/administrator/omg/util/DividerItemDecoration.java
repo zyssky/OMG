@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.util;
 
 import android.content.Context;
 import android.content.res.TypedArray;

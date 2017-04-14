@@ -1,22 +1,21 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.Home;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-import android.support.design.internal.BottomNavigationItemView;
-import android.support.design.internal.BottomNavigationMenuView;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.widget.FrameLayout;
 
-import java.lang.reflect.Field;
+import com.example.administrator.omg.Account.AccountFragment;
+import com.example.administrator.omg.History.OrderFragment;
+import com.example.administrator.omg.R;
+
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity  {
@@ -35,6 +34,7 @@ public class MainActivity extends AppCompatActivity  {
 
         setContentView(R.layout.activity_main);
 
+
 //        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 
         context = this;
@@ -42,6 +42,24 @@ public class MainActivity extends AppCompatActivity  {
         initNavigationView();
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.search:
+                Intent intent = new Intent(this,SearchActivity.class);
+                startActivity(intent);
+                break;
+        }
+        return true;
     }
 
     void initFragments(){

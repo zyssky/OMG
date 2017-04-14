@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.util;
 
 import android.content.Context;
 import android.net.Uri;
@@ -15,6 +15,6 @@ public class GlideImageLoader extends ImageLoader {
     @Override
     public void displayImage(Context context, Object path, ImageView imageView) {
         Integer integer = (Integer) path;
-        Glide.with(context).load(integer).into(imageView);
+        Glide.with(context).load(integer).thumbnail( 0.1f ).into(imageView);
     }
 }

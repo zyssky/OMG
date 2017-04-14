@@ -55,9 +55,12 @@
     <string name="hint_login_password_confirm">再次输入密码</string>
 
 
-
     <string name="service_desc_title">服务提供</string>
     <string name="service_desc_content">替换为具体的服务信息：譬如，羽毛球场馆有羽毛球卖，是否免费提供，还是要求，场馆有无WiFi等等</string>
+
+    <string name="search">搜索</string>
+
+    <string name="searchtitle">快速查找</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,7 +1,9 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.Account;
 
 import android.os.Bundle;
 import android.util.Log;
+
+import com.example.administrator.omg.AppContants;
 
 
 /**

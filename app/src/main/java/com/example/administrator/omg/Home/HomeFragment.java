@@ -1,8 +1,7 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.Home;
 
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -16,11 +15,14 @@ import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.administrator.omg.AppContants;
+import com.example.administrator.omg.util.GlideImageLoader;
+import com.example.administrator.omg.PlaceOrder.PlaceOrderActivity;
+import com.example.administrator.omg.R;
+import com.example.administrator.omg.TestData;
 import com.youth.banner.Banner;
 
 import java.lang.reflect.Field;
@@ -83,12 +85,12 @@ public class HomeFragment extends Fragment {
         ImageView view5 = (ImageView) football.findViewById(R.id.football_image);
         ImageView view6 = (ImageView) swimming.findViewById(R.id.swimming_image);
 
-        Glide.with(context).load(R.drawable.badminton).into(view1);
-        Glide.with(context).load(R.drawable.basketball).into(view2);
-        Glide.with(context).load(R.drawable.tabletennis).into(view3);
-        Glide.with(context).load(R.drawable.tennis).into(view4);
-        Glide.with(context).load(R.drawable.football).into(view5);
-        Glide.with(context).load(R.drawable.swimming).into(view6);
+        Glide.with(context).load(R.drawable.badminton).thumbnail( 0.1f ).into(view1);
+        Glide.with(context).load(R.drawable.tabletennis).thumbnail( 0.1f ).into(view2);
+        Glide.with(context).load(R.drawable.tennis).thumbnail( 0.1f ).into(view3);
+        Glide.with(context).load(R.drawable.basketball).thumbnail( 0.1f ).into(view4);
+        Glide.with(context).load(R.drawable.football).thumbnail( 0.1f ).into(view5);
+        Glide.with(context).load(R.drawable.swimming).thumbnail( 0.1f ).into(view6);
 
     }
 
@@ -106,7 +108,6 @@ public class HomeFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         initListenersOnCardViews(new CardViewListeners(getActivity()));
         testLoadImages(getContext());
-
     }
 
     private void initListenersOnCardViews(View.OnClickListener cardViewListeners) {

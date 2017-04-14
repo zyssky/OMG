@@ -1,4 +1,4 @@
-package com.example.administrator.omg;
+package com.example.administrator.omg.Account;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -21,6 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.administrator.omg.AppContants;
+import com.example.administrator.omg.R;
 
 /**
  * author：Administrator on 2017/3/21 09:13
