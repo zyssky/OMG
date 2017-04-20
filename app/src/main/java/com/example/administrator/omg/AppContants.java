@@ -13,4 +13,6 @@ public class AppContants {
     public static String PASSWORD = "PASSWORD";
     public static String PASSWORD_CONFIRM = "PASSWORD_CONFIRM";
 
+    public static String COURT_ID = "COURT_ID";
+
 }

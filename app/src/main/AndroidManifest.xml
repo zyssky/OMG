@@ -10,7 +10,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Home.MainActivity"
+        <activity
+            android:name=".Home.MainActivity"
             android:launchMode="singleTop">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,10 +23,16 @@
             android:name=".PlaceOrder.PlaceOrderActivity"
             android:label="@string/title_activity_place_order"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Account.LoginActivity" />
-        <activity android:name=".Home.SearchActivity"
-            android:theme="@style/Transparent"
-            android:parentActivityName=".Home.MainActivity"></activity>
+        <activity android:name=".Login.LoginActivity" />
+        <activity
+            android:name=".Search.SearchActivity"
+            android:parentActivityName=".Home.MainActivity"
+            android:theme="@style/Transparent" />
+        <activity android:name=".Coupon.CouponActivity" />
+        <activity android:name=".Credit.CreditActivity" />
+        <activity android:name=".Charge.ChargeActivity" />
+        <activity android:name=".SportActivity.SportAcActivity" />
+        <activity android:name=".IntroductionActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.example.administrator.omg.Home;
+package com.example.administrator.omg.Search;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -6,7 +6,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.administrator.omg.MetaData.Court;
 import com.example.administrator.omg.R;
+import com.example.administrator.omg.util.BaseRecyclerAdapter;
 
 import java.util.List;
 
@@ -16,9 +18,15 @@ import java.util.List;
 
 public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.MyViewHolder> {
 
-    private List<String> mdatas;
+    private List<Court> mdatas;
 
-    public ClassifyAdapter(List<String> mdatas){
+    private BaseRecyclerAdapter.OnItemClickListener mListener;
+
+    public void setOnItemClickListener(BaseRecyclerAdapter.OnItemClickListener li) {
+        mListener = li;
+    }
+
+    public ClassifyAdapter(List<Court> mdatas){
         this.mdatas = mdatas;
     }
 
@@ -29,8 +37,17 @@ public class ClassifyAdapter extends RecyclerView.Adapter<ClassifyAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.mood.setText(mdatas.get(position));
+    public void onBindViewHolder(MyViewHolder holder, final int position) {
+        holder.mood.setText(mdatas.get(position).getTitle());
+        final long id = mdatas.get(position).getId();
+        if(mListener!=null){
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.onItemClick(position,id);
+                }
+            });
+        }
     }
 
     @Override

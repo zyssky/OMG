@@ -9,7 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.administrator.omg.AppContants;
+import com.example.administrator.omg.MetaData.Court;
 import com.example.administrator.omg.R;
 
 
@@ -18,7 +18,7 @@ public class PlaceOrderFragment extends Fragment {
 
     private View rootView;
 
-    private Bundle initBundle;
+    private Court court;
 
     public PlaceOrderFragment() {
         // Required empty public constructor
@@ -31,8 +31,8 @@ public class PlaceOrderFragment extends Fragment {
         return fragment;
     }
 
-    public void setContent(Bundle bundle){
-        initBundle = bundle;
+    public void setContent(Court court){
+        this.court = court;
     }
 
     @Override
@@ -53,12 +53,14 @@ public class PlaceOrderFragment extends Fragment {
     }
 
     void initDetail(){
-        String introduction = initBundle.getString(AppContants.INTRODUCTION);
-        String service = initBundle.getString(AppContants.SERVICE);
+        String introduction = court.getDesc();
+        String service = court.getService();
         TextView tv_intro = (TextView) rootView.findViewById(R.id.introduction);
         TextView tv_service = (TextView) rootView.findViewById(R.id.service);
+        TextView tv_price = (TextView) rootView.findViewById(R.id.price);
         tv_intro.setText(introduction);
         tv_service.setText(service);
+        tv_price.setText(court.getPrice()+"");
     }
 
     @Override

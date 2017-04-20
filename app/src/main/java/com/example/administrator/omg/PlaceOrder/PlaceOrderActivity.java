@@ -17,6 +17,8 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 import com.example.administrator.omg.AppContants;
+import com.example.administrator.omg.MetaData.Court;
+import com.example.administrator.omg.Home.HomeTestData;
 import com.example.administrator.omg.R;
 
 import java.util.ArrayList;
@@ -70,55 +72,18 @@ public class PlaceOrderActivity extends AppCompatActivity {
             }
         });
 
-        switchType(getIntent().getExtras());
-
+        Bundle bundle = getIntent().getExtras();
+        long id = bundle.getLong(AppContants.COURT_ID);
+        Court court = HomeTestData.getInstance().getCourtById(id);
+        setBarInform(court.getTitle(),court.getImage());
+        ((PlaceOrderFragment)list_fragment.get(0)).setContent(court);
     }
 
-    void setBarInform(int titleId,int imageId){
-        toolbar.setTitle(getResources().getString(titleId));
-//        toolbar.setTitle();
+    void setBarInform(String title,Object imageId){
+        toolbar.setTitle(title);
+
         Glide.with(this).load(imageId).into(barImageView);
     }
-
-    private void switchType(Bundle extras) {
-        int resId = extras.getInt(AppContants.SPORT_NAME);
-        Bundle bundle = new Bundle();
-
-        switch (resId){
-            case R.id.badminton:
-                setBarInform(R.string.badminton,R.drawable.badminton);
-                bundle.putCharSequence(AppContants.SERVICE,getResources().getString(R.string.badminton_service));
-                bundle.putCharSequence(AppContants.INTRODUCTION,getResources().getString(R.string.badminton_introduction));
-                break;
-            case R.id.tabletennis:
-                setBarInform(R.string.tabletennis,R.drawable.tabletennis);
-                bundle.putCharSequence(AppContants.SERVICE,getResources().getString(R.string.tabletennis_service));
-                bundle.putCharSequence(AppContants.INTRODUCTION,getResources().getString(R.string.tabletennis_introduction));
-                break;
-            case R.id.tennis:
-                setBarInform(R.string.tennis,R.drawable.tennis);
-                bundle.putCharSequence(AppContants.SERVICE,getResources().getString(R.string.tennis_service));
-                bundle.putCharSequence(AppContants.INTRODUCTION,getResources().getString(R.string.tennis_introduction));
-                break;
-            case R.id.basketball:
-                setBarInform(R.string.basketball,R.drawable.basketball);
-                bundle.putCharSequence(AppContants.SERVICE,getResources().getString(R.string.basketball_service));
-                bundle.putCharSequence(AppContants.INTRODUCTION,getResources().getString(R.string.basketball_introduction));
-                break;
-            case R.id.football:
-                setBarInform(R.string.football,R.drawable.football);
-                bundle.putCharSequence(AppContants.SERVICE,getResources().getString(R.string.football_service));
-                bundle.putCharSequence(AppContants.INTRODUCTION,getResources().getString(R.string.football_introduction));
-                break;
-            case R.id.swimming:
-                setBarInform(R.string.swimming,R.drawable.swimming);
-                bundle.putCharSequence(AppContants.SERVICE,getResources().getString(R.string.swimming_service));
-                bundle.putCharSequence(AppContants.INTRODUCTION,getResources().getString(R.string.swimming_introduction));
-                break;
-        }
-        ((PlaceOrderFragment)list_fragment.get(0)).setContent(bundle);
-    }
-
 
     void initData(){
         list_fragment = new ArrayList<>();

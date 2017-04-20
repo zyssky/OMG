@@ -25,12 +25,12 @@ import java.util.Random;
  * Use the {@link OrderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OrderFragment extends Fragment {
+public class OrderFragment extends Fragment implements HistoryContract.View{
 
     private View rootView;
     private RecyclerView recyclerView;
 
-    private List<Order> mdata;
+    private HistoryPresenter presenter;
 
 
     public OrderFragment() {
@@ -46,6 +46,7 @@ public class OrderFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        presenter = new HistoryPresenter(this,OrdersTestData.getInstance());
     }
 
     @Override
@@ -64,33 +65,14 @@ public class OrderFragment extends Fragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
 
-        initOrdersData();
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        OrderAdapter adapter = new OrderAdapter(mdata);
-        recyclerView.setAdapter(adapter);
+        presenter.setAdapterOnRecyclerView();
         recyclerView.addItemDecoration(new SpaceItemDecoration(10,10,10,10));
     }
 
-    void initOrdersData(){
-        mdata = new ArrayList<>();
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
+    @Override
+    public void setAdapter(RecyclerView.Adapter adapter) {
+        recyclerView.setAdapter(adapter);
     }
 }
 

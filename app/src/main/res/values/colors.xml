@@ -7,7 +7,7 @@
     <color name="colorNavItemUnselected">#757575</color>
     <color name="layout_background">#fafafa</color>
     <color name="badminton">#31a208</color>
-    <color name="basketball">#ca5a06</color>
+    <color name="PlaceOrderDetailColor">#ca5a06</color>
     <color name="tabletennis">#b00833</color>
     <color name="tennis">#8da910</color>
     <color name="football">#800f91</color>

@@ -15,6 +15,8 @@ import android.view.MenuItem;
 import com.example.administrator.omg.Account.AccountFragment;
 import com.example.administrator.omg.History.OrderFragment;
 import com.example.administrator.omg.R;
+import com.example.administrator.omg.Search.SearchActivity;
+import com.example.administrator.omg.util.MyImageLoader;
 
 import java.util.ArrayList;
 
@@ -33,6 +35,8 @@ public class MainActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+
+        MyImageLoader.init(getApplicationContext());
 
 
 //        this.requestWindowFeature(Window.FEATURE_NO_TITLE);

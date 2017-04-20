@@ -10,6 +10,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.administrator.omg.Coupon.CouponActivity;
+import com.example.administrator.omg.Credit.CreditActivity;
+import com.example.administrator.omg.Login.LoginActivity;
 import com.example.administrator.omg.R;
 
 public class AccountFragment extends Fragment {
@@ -77,18 +80,20 @@ class CardViewsListeners implements View.OnClickListener{
 
     @Override
     public void onClick(View v) {
-
+        Intent intent = null;
         switch (v.getId()){
             case R.id.login:
-                Intent intent = new Intent(context,LoginActivity.class);
-                context.startActivity(intent);
+                intent = new Intent(context,LoginActivity.class);
                 break;
             case R.id.quan:
+                intent = new Intent(context,CouponActivity.class);
                 break;
             case R.id.jifen:
+                intent = new Intent(context,CreditActivity.class);
                 break;
             case R.id.logout:
-                break;
+                return;
         }
+        context.startActivity(intent);
     }
 }
