@@ -2,6 +2,7 @@ package com.example.administrator.omg.Account;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,19 +10,25 @@ import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
+import com.example.administrator.omg.AppContants;
+import com.example.administrator.omg.Balance.BalanceActivity;
 import com.example.administrator.omg.Coupon.CouponActivity;
 import com.example.administrator.omg.Credit.CreditActivity;
 import com.example.administrator.omg.Login.LoginActivity;
 import com.example.administrator.omg.R;
 
-public class AccountFragment extends Fragment {
+public class AccountFragment extends Fragment implements View.OnClickListener{
 
     private View rootView;
     private CardView login;
     private CardView quan;
     private CardView jifen;
     private CardView logout;
+    private CardView balance;
+
+    private Context context;
 
     public AccountFragment() {
         // Required empty public constructor
@@ -49,8 +56,35 @@ public class AccountFragment extends Fragment {
         quan = (CardView) rootView.findViewById(R.id.quan);
         jifen = (CardView) rootView.findViewById(R.id.jifen);
         logout = (CardView) rootView.findViewById(R.id.logout);
+        balance = (CardView) rootView.findViewById(R.id.balance);
+
 
         return rootView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        setAccountName();
+    }
+
+    private void setAccountName() {
+        SharedPreferences share = context.getSharedPreferences(AppContants.USER_PREFER,Context.MODE_PRIVATE);
+        String account = share.getString(AppContants.ACCOUNT,null);
+        if(account!=null){
+            TextView tv = (TextView) login.findViewById(R.id.login_text);
+            tv.setText(account);
+        }
+    }
+
+    private void clearAccount(){
+        SharedPreferences share = context.getSharedPreferences(AppContants.USER_PREFER,Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = share.edit();
+        editor.putString(AppContants.ACCOUNT,null);
+        editor.putString(AppContants.TOKEN,null);
+        editor.commit();
+        TextView tv = (TextView) login.findViewById(R.id.login_text);
+        tv.setText(R.string.login);
     }
 
     @Override
@@ -61,13 +95,27 @@ public class AccountFragment extends Fragment {
 
     private void initCardViewsListeners(Context context) {
         CardViewsListeners listener = new CardViewsListeners(context);
-        logout.setOnClickListener(listener);
+        logout.setOnClickListener(this);
         login.setOnClickListener(listener);
         quan.setOnClickListener(listener);
         jifen.setOnClickListener(listener);
+        balance.setOnClickListener(listener);
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.logout:
+                clearAccount();
+                break;
+        }
+    }
 }
 
 class CardViewsListeners implements View.OnClickListener{
@@ -91,8 +139,9 @@ class CardViewsListeners implements View.OnClickListener{
             case R.id.jifen:
                 intent = new Intent(context,CreditActivity.class);
                 break;
-            case R.id.logout:
-                return;
+            case R.id.balance:
+                intent = new Intent(context,BalanceActivity.class);
+                break;
         }
         context.startActivity(intent);
     }

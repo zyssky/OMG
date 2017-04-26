@@ -44,16 +44,43 @@ public class HomeTestData implements HomeContract.Model {
         court2.setService("这是游泳的服务");
         court2.setPrice(72.8);
         mdatas.add(court2);
-        mdatas.add(court1);
-        mdatas.add(court1);
-        mdatas.add(court1);
-        mdatas.add(court1);
+        Court court3 = new Court();
+        court3.setTitle("乒乓球");
+        court3.setImage(R.drawable.tabletennis);
+        court3.setId(new Random().nextLong());
+        court3.setDesc("这是乒乓球的描述");
+        court3.setService("这是乒乓球的服务");
+        court3.setPrice(20);
+        mdatas.add(court3);
+        Court court4 = new Court();
+        court4.setTitle("足球");
+        court4.setImage(R.drawable.football);
+        court4.setDesc("这是足球的描述");
+        court4.setService("这是足球的服务");
+        court4.setId(new Random().nextLong());
+        court4.setPrice(120);
+        mdatas.add(court4);
+        Court court6 = new Court();
+        court6.setTitle("网球");
+        court6.setImage(R.drawable.tennis);
+        court6.setDesc("这是网球的描述");
+        court6.setId(new Random().nextLong());
+        court6.setService("这是网球的服务");
+        court6.setPrice(42);
+        mdatas.add(court6);
+//        mdatas.add(court1);
+//        mdatas.add(court1);
+//        mdatas.add(court1);
+//        mdatas.add(court1);
 
 
         mImages = new ArrayList<>();
         mImages.add(R.drawable.badminton);
         mImages.add(R.drawable.basketball);
         mImages.add(R.drawable.swimming);
+        mImages.add(R.drawable.tabletennis);
+        mImages.add(R.drawable.tennis);
+        mImages.add(R.drawable.football);
     }
 
     @Override

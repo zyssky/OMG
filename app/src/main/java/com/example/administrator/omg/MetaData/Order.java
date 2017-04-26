@@ -15,7 +15,7 @@ public class Order {
     int count;
     double singlePrice;
 
-    public Order(long id, String sportType, String date, @Nullable String desc, int count, double singlePrice){
+    public Order(long id, String sportType, String date,@Nullable String desc, int count, double singlePrice){
         this.count = count;
         this.date = date;
         this.desc = desc;

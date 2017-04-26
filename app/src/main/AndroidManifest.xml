@@ -32,7 +32,16 @@
         <activity android:name=".Credit.CreditActivity" />
         <activity android:name=".Charge.ChargeActivity" />
         <activity android:name=".SportActivity.SportAcActivity" />
-        <activity android:name=".IntroductionActivity"></activity>
+        <activity android:name=".IntroductionActivity" />
+        <activity
+            android:name=".Login.WaitingActivity"
+            android:theme="@style/TransparentNoBar" />
+        <activity
+            android:name=".Choose.PickActivity"
+            android:theme="@style/TransparentNoBar" />
+        <activity android:name=".Choose.PickTimeActivity" />
+        <activity android:name=".Balance.BalanceActivity" />
+        <activity android:name=".History.GiveCommentActivity"></activity>
     </application>
 
 </manifest>

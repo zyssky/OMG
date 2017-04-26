@@ -1,6 +1,8 @@
 package com.example.administrator.omg.History;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -10,8 +12,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.administrator.omg.AppContants;
 import com.example.administrator.omg.MetaData.Order;
 import com.example.administrator.omg.R;
+import com.example.administrator.omg.util.BaseRecyclerAdapter;
 import com.example.administrator.omg.util.SpaceItemDecoration;
 
 import java.util.ArrayList;
@@ -25,12 +29,16 @@ import java.util.Random;
  * Use the {@link OrderFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class OrderFragment extends Fragment implements HistoryContract.View{
+public class OrderFragment extends Fragment implements HistoryContract.View {
 
     private View rootView;
     private RecyclerView recyclerView;
+    private Context context;
 
-    private HistoryPresenter presenter;
+    private HistoryContract.Presenter presenter;
+
+    private BaseRecyclerAdapter.OnItemClickListener commentListener;
+    private BaseRecyclerAdapter.OnItemClickListener deleteListener;
 
 
     public OrderFragment() {
@@ -46,7 +54,10 @@ public class OrderFragment extends Fragment implements HistoryContract.View{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        presenter = new HistoryPresenter(this,OrdersTestData.getInstance());
+        HistoryPresenter tmpPresenter = HistoryPresenter.getInstance();
+        tmpPresenter.setView(this);
+        tmpPresenter.setModel(OrdersTestData.getInstance());
+        presenter = tmpPresenter;
     }
 
     @Override
@@ -71,7 +82,43 @@ public class OrderFragment extends Fragment implements HistoryContract.View{
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        this.context = context;
+    }
+
+    @Override
     public void setAdapter(RecyclerView.Adapter adapter) {
+        if(adapter instanceof OrderAdapter){
+            OrderAdapter orderAdapter = (OrderAdapter) adapter;
+            if(commentListener==null){
+                commentListener = new BaseRecyclerAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position, Object data) {
+                        if(data instanceof Order) {
+                            Order order = (Order) data;
+                            Intent intent = new Intent(context, GiveCommentActivity.class);
+                            intent.putExtra(AppContants.ORDER_ID, order.getId());
+                            context.startActivity(intent);
+                        }
+                    }
+                };
+            }
+            if(deleteListener == null){
+                deleteListener = new BaseRecyclerAdapter.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(int position, Object data) {
+                        if(data instanceof Order) {
+                            Order order = (Order) data;
+                            presenter.deleteOrder(order.getId());
+                        }
+                    }
+                };
+            }
+
+            orderAdapter.setmCommentListener(commentListener);
+            orderAdapter.setmDeleteListener(deleteListener);
+        }
         recyclerView.setAdapter(adapter);
     }
 }

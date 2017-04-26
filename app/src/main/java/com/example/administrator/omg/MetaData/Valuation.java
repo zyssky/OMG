@@ -9,10 +9,29 @@ public class Valuation {
     String date;
     String content;
 
-    public Valuation(String user,String date,String content){
+    long orderId;
+
+    public long getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(long orderId) {
+        this.orderId = orderId;
+    }
+
+    public Valuation(String user, String date, String content){
         this.content = content;
         this.date = date;
         this.user = user;
+    }
+
+    public Valuation(long id,String content){
+        this.orderId = id;
+        this.content  = content;
+    }
+
+    public Valuation(){
+
     }
 
     public String getUser() {

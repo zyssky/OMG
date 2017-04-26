@@ -3,6 +3,7 @@ package com.example.administrator.omg.History;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.administrator.omg.MetaData.Order;
+import com.example.administrator.omg.MetaData.Valuation;
 
 import java.util.List;
 
@@ -15,8 +16,18 @@ public interface HistoryContract {
         void setAdapter(RecyclerView.Adapter adapter);
     }
 
+    interface Presenter{
+        void setAdapterOnRecyclerView();
+
+        void deleteOrder(long id);
+
+        void addCommment(Valuation valuation);
+    }
+
     interface Model{
         List<Order> getAllOrdersByPage(int page);
+
+        Order getOrderById(long id);
 
         void addOrder(Order order);
 

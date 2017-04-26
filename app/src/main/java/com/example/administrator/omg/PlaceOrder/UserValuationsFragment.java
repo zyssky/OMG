@@ -22,8 +22,6 @@ public class UserValuationsFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private List<Valuation> datas;
-
     private View rootView;
 
     public UserValuationsFragment() {
@@ -57,32 +55,16 @@ public class UserValuationsFragment extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        initDatas();
 
         initRecyclerView();
     }
 
-    private void initDatas() {
-        datas = new ArrayList<>();
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-        datas.add(new Valuation("user","date","content"));
-
-    }
 
 
 
     void initRecyclerView(){
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        ValuationAdapter adapter = new ValuationAdapter(datas);
+        ValuationAdapter adapter = new ValuationAdapter(UserValuationsDataSource.getInstance().getValuations());
         recyclerView.setAdapter(adapter);
         recyclerView.addItemDecoration(new SpaceItemDecoration(10,10,10,10));
     }

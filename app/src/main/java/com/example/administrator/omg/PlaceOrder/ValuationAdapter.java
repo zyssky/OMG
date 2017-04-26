@@ -31,6 +31,8 @@ public class ValuationAdapter extends RecyclerView.Adapter<ValuationAdapter.MyVi
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
         holder.user.setText(mdatas.get(position).getUser());
+        holder.content.setText(mdatas.get(position).getContent());
+        holder.date.setText(mdatas.get(position).getDate());
     }
 
     @Override

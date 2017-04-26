@@ -15,6 +15,7 @@
 
     <color name="quan">#f90505</color>
     <color name="jifen">#ffef0e</color>
+    <color name="balance">#4806d8</color>
 
     <color name="logout">#e967a509</color>
 
@@ -29,5 +30,9 @@
     <color name="price">#e2690d</color>
 
     <color name = "transparent">#e0000000</color>
+
+    <color name="user_name">#080a92</color>
+
+    <color name="cancle">#cfebdfdf</color>
 
 </resources>

@@ -2,6 +2,7 @@ package com.example.administrator.omg.Home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.Fragment;
@@ -13,7 +14,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 
 import com.example.administrator.omg.Account.AccountFragment;
+import com.example.administrator.omg.AppContants;
 import com.example.administrator.omg.History.OrderFragment;
+import com.example.administrator.omg.Login.AsyncLogin;
+import com.example.administrator.omg.Login.WaitingActivity;
 import com.example.administrator.omg.R;
 import com.example.administrator.omg.Search.SearchActivity;
 import com.example.administrator.omg.util.MyImageLoader;
@@ -45,8 +49,19 @@ public class MainActivity extends AppCompatActivity  {
         initFragments();
         initNavigationView();
 
+//        tryToLoginDefault();
 
     }
+
+//    private void tryToLoginDefault() {
+//        SharedPreferences share = this.getSharedPreferences(AppContants.USER_PREFER,Context.MODE_PRIVATE);
+//        String account = share.getString(AppContants.ACCOUNT,"");
+//        String password = share.getString(AppContants.PASSWORD,"");
+//        if(account.length()>0)
+//            new AsyncLogin(this).execute(account,password);
+//    }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

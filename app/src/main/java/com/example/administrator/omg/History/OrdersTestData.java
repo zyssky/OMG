@@ -2,6 +2,8 @@ package com.example.administrator.omg.History;
 
 import com.example.administrator.omg.MetaData.Order;
 
+import java.text.Format;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -36,25 +38,32 @@ public class OrdersTestData implements HistoryContract.Model {
     public List<Order> getAllOrdersByPage(int page) {
 
         mdata = new ArrayList<>();
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", new Date().toString(),null,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", new Date().toString(),null,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", new Date().toString(),null,1,45));
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        String date = format.format(new Date());
+        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
+        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
+        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
+        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
+        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
+        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
+        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
+        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
+        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
+        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
+        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
+        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
+        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
+        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
+        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
+        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
+        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
+        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
         return mdata;
+    }
+
+    @Override
+    public Order getOrderById(long id) {
+        return null;
     }
 
     @Override

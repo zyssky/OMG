@@ -45,6 +45,7 @@
     <string name="quan">优惠券</string>
     <string name="jifen">积分兑换</string>
     <string name="logout">退出登录</string>
+    <string name="balance">账户余额</string>
 
     <string name="hint_login_username">请输入账号</string>
     <string name="hint_login_password">输入密码</string>
@@ -53,7 +54,15 @@
     <string name="register">注册</string>
     <string name="to_register">注册新用户</string>
     <string name="hint_login_password_confirm">再次输入密码</string>
+    <string name="wrong_confirm_pwd">密码不一致</string>
+    <string name="empty_password">密码不能为空</string>
+    <string name="empty_account">账号不能为空</string>
+    <string name="login_fail">登录失败，用户名或密码错误！</string>
+    <string name="register_fail">注册失败，用户已存在！</string>
+    <string name="login_success">登陆成功</string>
 
+    <string name="cancle">取消</string>
+    <string name="confirm">确认</string>
 
     <string name="service_desc_title">服务提供</string>
     <string name="service_desc_content">替换为具体的服务信息：譬如，羽毛球场馆有羽毛球卖，是否免费提供，还是要求，场馆有无WiFi等等</string>
@@ -61,6 +70,14 @@
     <string name="search">搜索</string>
 
     <string name="searchtitle">快速查找</string>
+
+    <string name="take_comment">评价</string>
+    <string name="take_delete">删除</string>
+
+    <string name="comment_public">发布</string>
+    <string name="comment_cancle">取消</string>
+
+    <string name="write_hint">你对这次球场的使用体验...</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
