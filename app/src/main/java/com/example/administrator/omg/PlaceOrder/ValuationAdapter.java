@@ -22,6 +22,18 @@ public class ValuationAdapter extends RecyclerView.Adapter<ValuationAdapter.MyVi
         this.mdatas = mdatas;
     }
 
+    public void clearDatas(){
+        mdatas.clear();
+    }
+
+    public void addComment(Valuation valuation){
+        mdatas.add(valuation);
+    }
+
+    public void notifyDataChange(){
+        notifyDataSetChanged();
+    }
+
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.valution,parent,false);
@@ -30,7 +42,8 @@ public class ValuationAdapter extends RecyclerView.Adapter<ValuationAdapter.MyVi
 
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
-        holder.user.setText(mdatas.get(position).getUser());
+        String user = mdatas.get(position).getUser();
+        holder.user.setText(user.substring(0,3)+"****"+user.substring(7));
         holder.content.setText(mdatas.get(position).getContent());
         holder.date.setText(mdatas.get(position).getDate());
     }

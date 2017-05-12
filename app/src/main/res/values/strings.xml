@@ -41,9 +41,19 @@
     <string name="swimming_introduction">游泳介绍</string>
     <string name="tennis_introduction">网球介绍</string>
 
+    <string name="jianjie">简介</string>
+    <string name="jianjiecontent">海印又一城体育会是海印集团重力打造的一个提供舒适运动场馆的体育场所，场馆包含多种场地：羽毛球，乒乓球，网球，游泳的常见的体育设施
+                                    体育馆还邀请了众多陪练，教练来供用户选择，竭诚为广大新老顾客提供最完美的服务。</string>
+    <string name="changdisheshi">场地设施</string>
+    <string name="changdisheshicontent">地板：橡胶地板\n灯光：吊灯\n休息室：空调，vip室</string>
+    <string name="jiaotong">交通信息</string>
+    <string name="jiaotongcontent">地铁：汉溪长隆站</string>
+    <string name="phone">020-39193893</string>
+    <string name="location">番禺大道北383号海印又一城奥特莱斯广场B座3层</string>
+
     <string name="login">登录</string>
     <string name="quan">优惠券</string>
-    <string name="jifen">积分兑换</string>
+    <string name="jifen">积分</string>
     <string name="logout">退出登录</string>
     <string name="balance">账户余额</string>
 

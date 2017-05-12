@@ -17,12 +17,13 @@
             android:id="@+id/order_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="title"
+            android:text="类型"
             android:textSize="20dp"
-            android:layout_marginLeft="8dp"
-            card_view:layout_constraintLeft_toLeftOf="parent"
+            android:textColor="@color/swimming"
             card_view:layout_constraintTop_toTopOf="parent"
-            android:layout_marginTop="8dp" />
+            android:layout_marginTop="8dp"
+            card_view:layout_constraintLeft_toRightOf="@+id/textView16"
+            android:layout_marginLeft="8dp" />
 
         <TextView
             android:id="@+id/order_date"
@@ -30,14 +31,11 @@
             android:layout_height="wrap_content"
             android:text="date"
             android:gravity="right|center"
-            android:textSize="14dp"
-            card_view:layout_constraintLeft_toRightOf="@+id/order_title"
-            android:layout_marginLeft="8dp"
+            android:textSize="16dp"
             card_view:layout_constraintTop_toTopOf="parent"
             android:layout_marginTop="8dp"
             android:layout_marginRight="8dp"
-            card_view:layout_constraintRight_toRightOf="parent"
-            card_view:layout_constraintHorizontal_bias="0.872" />
+            card_view:layout_constraintRight_toRightOf="parent" />
 
 
         <TextView
@@ -45,39 +43,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="time"
-            android:textSize="15dp"
+            android:textSize="20dp"
             android:gravity="center|left"
-            android:layout_marginLeft="8dp"
-            card_view:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/order_title"
-            card_view:layout_constraintRight_toLeftOf="@+id/textView"
-            android:layout_marginRight="8dp" />
-
-
-
-
-        <TextView
-            android:id="@+id/order_desc"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="desc"
-            card_view:layout_constraintLeft_toRightOf="@+id/textView3"
-            android:layout_marginLeft="8dp"
-            android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/order_time" />
+            card_view:layout_constraintTop_toBottomOf="@+id/textView3"
+            android:layout_marginLeft="24dp"
+            card_view:layout_constraintLeft_toLeftOf="parent" />
 
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="备注："
-            android:textSize="15dp"
             android:layout_marginLeft="8dp"
-            card_view:layout_constraintLeft_toLeftOf="parent"
             android:layout_marginTop="8dp"
-            card_view:layout_constraintTop_toBottomOf="@+id/order_time" />
+            android:text="预订时间："
+            android:textSize="15dp"
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintTop_toBottomOf="@+id/order_title" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -94,11 +77,11 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="￥"
-                android:textSize="20dp"
-                android:textColor="@color/price"
                 android:layout_marginRight="8dp"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="8dp"
+                android:text="共支付：￥"
+                android:textColor="@color/price"
+                android:textSize="16dp" />
 
             <TextView
                 android:id="@+id/order_price"
@@ -106,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:text="price"
                 android:gravity="center"
-                android:textSize="16dp"
+                android:textSize="20dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginRight="8dp" />
 
@@ -127,7 +110,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="X"
-                android:textSize="18dp"
+                android:textSize="16dp"
                 android:textColor="@color/colorAccent"
                 android:layout_marginRight="7dp"
                 android:layout_marginTop="8dp" />
@@ -135,7 +118,7 @@
             <TextView
                 android:id="@+id/order_count"
                 android:layout_width="wrap_content"
-                android:textSize="15dp"
+                android:textSize="20dp"
                 android:layout_height="wrap_content"
                 android:text="count"
                 android:gravity="center"
@@ -170,6 +153,17 @@
             android:layout_marginBottom="8dp"
             tools:layout_editor_absoluteY="110dp"
             tools:layout_editor_absoluteX="218dp" />
+
+        <TextView
+            android:id="@+id/textView16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18dp"
+            android:text="场地类型："
+            card_view:layout_constraintLeft_toLeftOf="parent"
+            card_view:layout_constraintTop_toTopOf="parent" />
 
 
     </android.support.constraint.ConstraintLayout>

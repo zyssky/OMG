@@ -2,6 +2,8 @@ package com.example.administrator.omg.PlaceOrder;
 
 import android.widget.ExpandableListAdapter;
 
+import com.example.administrator.omg.MetaData.Order;
+
 import java.util.List;
 
 /**
@@ -12,12 +14,18 @@ public interface PlaceOrderContract {
     interface View{
         void setPickDate(String date);
         void setPickTime(String time);
-        void setPickCount(Integer count);
+        void addCount();
+        void decCount();
         void setPickDesc(String desc);
     }
 
     interface Presenter{
         ExpandableListAdapter getExpandListAdapter();
+
+        void tryToAddCount();
+        void tryToDecCount();
+
+        Order getCurOrder();
     }
 
     interface Model{

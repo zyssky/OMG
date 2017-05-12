@@ -8,10 +8,10 @@
             android:enabled="true"
             android:title="@string/charge" />
 
-        <item android:id="@+id/nav_activity"
-            android:icon="@drawable/ic_group_black_24px"
-            android:enabled="true"
-            android:title="@string/activity" />
+        <!--<item android:id="@+id/nav_activity"-->
+            <!--android:icon="@drawable/ic_group_black_24px"-->
+            <!--android:enabled="true"-->
+            <!--android:title="@string/activity" />-->
 
         <item android:id="@+id/nav_comment"
             android:icon="@drawable/ic_comment_black_24px"

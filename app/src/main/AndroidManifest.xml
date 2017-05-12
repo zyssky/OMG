@@ -2,6 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.omg">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo"
@@ -10,6 +16,16 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity
+            android:name="com.alipay.sdk.app.H5PayActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
+        <activity
+            android:name="com.alipay.sdk.auth.AuthActivity"
+            android:configChanges="orientation|keyboardHidden|navigation"
+            android:exported="false"
+            android:screenOrientation="behind"></activity>
         <activity
             android:name=".Home.MainActivity"
             android:launchMode="singleTop">
@@ -30,9 +46,12 @@
             android:theme="@style/Transparent" />
         <activity android:name=".Coupon.CouponActivity" />
         <activity android:name=".Credit.CreditActivity" />
-        <activity android:name=".Charge.ChargeActivity" />
+        <activity android:name=".Charge.ChargeActivity"
+            android:parentActivityName=".Home.MainActivity"/>
         <activity android:name=".SportActivity.SportAcActivity" />
-        <activity android:name=".IntroductionActivity" />
+        <activity
+            android:name=".IntroductionActivity"
+            android:parentActivityName=".Home.MainActivity" />
         <activity
             android:name=".Login.WaitingActivity"
             android:theme="@style/TransparentNoBar" />
@@ -41,7 +60,9 @@
             android:theme="@style/TransparentNoBar" />
         <activity android:name=".Choose.PickTimeActivity" />
         <activity android:name=".Balance.BalanceActivity" />
-        <activity android:name=".History.GiveCommentActivity"></activity>
+        <activity android:name=".History.GiveCommentActivity" />
+        <activity android:name=".OrderConfirmActivity"
+            android:theme="@style/FullTransparentNoBar"></activity>
     </application>
 
 </manifest>

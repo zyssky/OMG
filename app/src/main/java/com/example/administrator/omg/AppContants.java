@@ -15,6 +15,8 @@ public class AppContants {
     public static String TYPE = "TYPE";
     public static int LOGIN = 0;
     public static int REGISTER = 1;
+    public static String BALANCE = "BALANE";
+    public static String CREDIT = "CREDIT";
 
     public static String USER_PREFER = "USER_PREFER";
     public static String TOKEN = "TOKEN";

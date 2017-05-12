@@ -1,5 +1,7 @@
 package com.example.administrator.omg.PlaceOrder;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,12 +21,16 @@ import com.bumptech.glide.Glide;
 import com.example.administrator.omg.AppContants;
 import com.example.administrator.omg.MetaData.Court;
 import com.example.administrator.omg.Home.HomeTestData;
+import com.example.administrator.omg.MetaData.Order;
+import com.example.administrator.omg.OrderConfirmActivity;
 import com.example.administrator.omg.R;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class PlaceOrderActivity extends AppCompatActivity {
+
+    private Context context;
 
     private SectionsPagerAdapter mSectionsPagerAdapter;
 
@@ -44,6 +50,8 @@ public class PlaceOrderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_order);
+
+        context = this;
 
         initData();
 
@@ -67,8 +75,16 @@ public class PlaceOrderActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, R.string.warnning, Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Order order = PlaceOrderPresenter.getInstance().getCurOrder();
+                if(!order.isOk()) {
+                    Snackbar.make(view, R.string.warnning, Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                }
+                else{
+                    Intent intent = new Intent(context, OrderConfirmActivity.class);
+                    startActivity(intent);
+                }
+
             }
         });
 
@@ -77,6 +93,7 @@ public class PlaceOrderActivity extends AppCompatActivity {
         Court court = HomeTestData.getInstance().getCourtById(id);
         setBarInform(court.getTitle(),court.getImage());
         ((PlaceOrderFragment)list_fragment.get(0)).setContent(court);
+        ((UserValuationsFragment)list_fragment.get(1)).setCourtTitle(court.getTitle());
     }
 
     void setBarInform(String title,Object imageId){
@@ -94,6 +111,14 @@ public class PlaceOrderActivity extends AppCompatActivity {
         list_fragment.add(PlaceOrderFragment.newInstance());
         list_fragment.add(UserValuationsFragment.newInstance());
 
+    }
+
+    public void decCount(View view){
+        PlaceOrderPresenter.getInstance().tryToDecCount();
+    }
+
+    public void addCount(View view){
+        PlaceOrderPresenter.getInstance().tryToAddCount();
     }
 
     public class SectionsPagerAdapter extends FragmentPagerAdapter {

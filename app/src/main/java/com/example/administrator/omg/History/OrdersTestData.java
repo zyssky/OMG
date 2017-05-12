@@ -40,24 +40,17 @@ public class OrdersTestData implements HistoryContract.Model {
         mdata = new ArrayList<>();
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
         String date = format.format(new Date());
-        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
-        mdata.add(new Order(new Random().nextLong(),"badminton", date,date,1,65));
-        mdata.add(new Order(new Random().nextLong(),"tennis", date,date,1,55));
-        mdata.add(new Order(new Random().nextLong(),"basketball", date,date,1,45));
+        String time = "07:00-09:30";
+//        mdata.add(new Order(new Random().nextLong(),"羽毛球", date,time,1,65));
+//        mdata.add(new Order(new Random().nextLong(),"网球", date,time,1,55));
+//        mdata.add(new Order(new Random().nextLong(),"篮球", date,time,1,45));
+//        mdata.add(new Order(new Random().nextLong(),"羽毛球", date,time,1,65));
+//        mdata.add(new Order(new Random().nextLong(),"游泳", date,time,1,55));
+//        mdata.add(new Order(new Random().nextLong(),"篮球", date,time,1,45));
+//        mdata.add(new Order(new Random().nextLong(),"羽毛球", date,time,1,65));
+//        mdata.add(new Order(new Random().nextLong(),"乒乓球", date,time,1,55));
+//        mdata.add(new Order(new Random().nextLong(),"足球", date,time,1,45));
+//        mdata.add(new Order(new Random().nextLong(),"羽毛球", date,time,1,65));
         return mdata;
     }
 
@@ -68,11 +61,20 @@ public class OrdersTestData implements HistoryContract.Model {
 
     @Override
     public void addOrder(Order order) {
-
+        mdata.add(order);
     }
 
     @Override
     public void deleteOrder(long id) {
-
+        int target = -1;
+        for (int i = 0; i < mdata.size(); i++) {
+            if(id == mdata.get(i).getId()){
+                target = i;
+                break;
+            }
+        }
+        if(target>=0){
+            mdata.remove(target);
+        }
     }
 }

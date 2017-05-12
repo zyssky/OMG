@@ -25,10 +25,6 @@ public class Valuation {
         this.user = user;
     }
 
-    public Valuation(long id,String content){
-        this.orderId = id;
-        this.content  = content;
-    }
 
     public Valuation(){
 

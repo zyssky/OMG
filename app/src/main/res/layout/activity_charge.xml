@@ -6,4 +6,88 @@
     android:layout_height="match_parent"
     tools:context="com.example.administrator.omg.Charge.ChargeActivity">
 
+    <TextView
+        android:id="@+id/textView12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="选择充值金额"
+        android:textSize="20dp"
+        android:textColor="@color/color_d81e06"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        app:layout_constraintLeft_toLeftOf="parent" />
+
+    <Button
+        android:id="@+id/five_yuan"
+        android:onClick="charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_purple"
+        android:text="5元"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <Button
+        android:id="@+id/ten_yuan"
+        android:onClick="charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:text="10元"
+        app:layout_constraintLeft_toRightOf="@+id/five_yuan"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <Button
+        android:id="@+id/twenty_yuan"
+        android:onClick="charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_orange_dark"
+        android:text="20元"
+        app:layout_constraintLeft_toRightOf="@+id/ten_yuan"
+        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
+    <Button
+        android:id="@+id/fifty_yuan"
+        android:onClick="charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_green_dark"
+        android:text="50元"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/five_yuan" />
+
+    <Button
+        android:id="@+id/one_hundred_yuan"
+        android:onClick="charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_red_dark"
+        android:text="100元"
+        app:layout_constraintLeft_toRightOf="@+id/fifty_yuan"
+        app:layout_constraintTop_toBottomOf="@+id/ten_yuan" />
+
+    <Button
+        android:id="@+id/two_hundred_yuan"
+        android:onClick="charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/holo_red_light"
+        android:text="200元"
+        app:layout_constraintLeft_toRightOf="@+id/one_hundred_yuan"
+        app:layout_constraintTop_toBottomOf="@+id/twenty_yuan" />
+
 </android.support.constraint.ConstraintLayout>

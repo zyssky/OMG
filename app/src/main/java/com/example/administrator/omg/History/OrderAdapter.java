@@ -25,6 +25,29 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         mdatas = datas;
     }
 
+    public void clearOrders(){
+        mdatas.clear();
+    }
+
+    public void addOrder(Order order) {
+        mdatas.add(order);
+        notifyDataSetChanged();
+    }
+
+    public void deleteOrder(long id) {
+        int target = -1;
+        for (int i = 0; i < mdatas.size(); i++) {
+            if(id == mdatas.get(i).getId()){
+                target = i;
+                break;
+            }
+        }
+        if(target>=0){
+            mdatas.remove(target);
+        }
+        notifyDataSetChanged();
+    }
+
     private BaseRecyclerAdapter.OnItemClickListener mDeleteListener;
 
     private BaseRecyclerAdapter.OnItemClickListener mCommentListener;
@@ -49,8 +72,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         holder.sportType.setText(order.getSportType());
         holder.count.setText(""+order.getCount());
         holder.date.setText(order.getDate());
-        holder.desc.setText(order.getDesc());
-        holder.price.setText(""+order.getSinglePrice());
+//        holder.desc.setText(order.getDesc());
+        holder.price.setText(""+order.getTotal());
         holder.time.setText(order.getTime());
 
         if(null!=mCommentListener){
@@ -82,7 +105,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
         public TextView date;
         public TextView time;
         public TextView price;
-        public TextView desc;
+//        public TextView desc;
         public TextView count;
         public Button take_comment;
         public Button take_delete;
@@ -93,7 +116,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyViewHolder
             date = (TextView) itemView.findViewById(R.id.order_date);
             time = (TextView) itemView.findViewById(R.id.order_time);
             price = (TextView) itemView.findViewById(R.id.order_price);
-            desc = (TextView) itemView.findViewById(R.id.order_desc);
+//            desc = (TextView) itemView.findViewById(R.id.order_desc);
             count = (TextView) itemView.findViewById(R.id.order_count);
 
             take_comment = (Button) itemView.findViewById(R.id.take_comment);

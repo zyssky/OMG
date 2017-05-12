@@ -25,17 +25,6 @@ public class UserValuationsDataSource {
 
     private void initData(){
         mdatas = new ArrayList<>();
-        mdatas.add(new Valuation("user","date","qqqcontent"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
-        mdatas.add(new Valuation("user","date","content"));
     }
 
     public List<Valuation> getValuations(){

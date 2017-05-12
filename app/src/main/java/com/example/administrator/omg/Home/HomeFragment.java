@@ -75,7 +75,7 @@ public class HomeFragment extends Fragment implements HomeContract.View{
 
     private void initNavigationView(View rootView) {
         navigationview = (BottomNavigationView) rootView.findViewById(R.id.nav_others);
-        BottomNavigationViewHelper.disableShiftMode(navigationview);
+//        BottomNavigationViewHelper.disableShiftMode(navigationview);
         navigationview.setSelectedItemId(R.id.nav_category);
 
         navigationview.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -86,9 +86,9 @@ public class HomeFragment extends Fragment implements HomeContract.View{
                     case R.id.nav_charge:
                         intent = new Intent(context, ChargeActivity.class);
                         break;
-                    case R.id.nav_activity:
-                        intent = new Intent(context, SportAcActivity.class);
-                        break;
+//                    case R.id.nav_activity:
+//                        intent = new Intent(context, SportAcActivity.class);
+//                        break;
                     case R.id.nav_comment:
                         intent = new Intent(context, IntroductionActivity.class);
                         break;

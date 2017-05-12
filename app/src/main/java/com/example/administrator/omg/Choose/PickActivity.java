@@ -103,18 +103,24 @@ public class PickActivity extends AppCompatActivity {
     }
 
     public void onClickOk(View view){
+        int id = radioGroup.getCheckedRadioButtonId();
+        if(id<0) {
+            finish();
+            return;
+        }
         switch (chooseType){
+
             case PICK_DATE:
-                PlaceOrderPresenter.getInstance().updateDate(radioGroup.getCheckedRadioButtonId());
+                PlaceOrderPresenter.getInstance().updateDate(id);
                 break;
             case PICK_TIME:
-                PlaceOrderPresenter.getInstance().updateTime(radioGroup.getCheckedRadioButtonId());
+                PlaceOrderPresenter.getInstance().updateTime(id);
                 break;
-            case PICK_COUNT:
-                PlaceOrderPresenter.getInstance().updateCount(radioGroup.getCheckedRadioButtonId());
-                break;
-            case PICK_DESC:
-                PlaceOrderPresenter.getInstance().updateDesc(desc.getText().toString());
+//            case PICK_COUNT:
+//                PlaceOrderPresenter.getInstance().updateCount(radioGroup.getCheckedRadioButtonId());
+//                break;
+//            case PICK_DESC:
+//                PlaceOrderPresenter.getInstance().updateDesc(desc.getText().toString());
         }
         finish();
     }

@@ -17,6 +17,8 @@ public interface HistoryContract {
     }
 
     interface Presenter{
+        void notifyDataSetChange();
+
         void setAdapterOnRecyclerView();
 
         void deleteOrder(long id);

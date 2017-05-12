@@ -1,8 +1,13 @@
 package com.example.administrator.omg.PlaceOrder;
 
+
+
 import com.example.administrator.omg.R;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -14,6 +19,12 @@ public class PlaceOrderDatas implements PlaceOrderContract.Model {
     private List<String> dates;
     private List<String> times;
     private List<Integer> counts;
+
+    private final static String Time1 = "07:00-09:30";
+    private final static String Time2 = "09:30-12:00";
+    private final static String Time3 = "14:00-16:00";
+    private final static String Time4 = "16:00-18:00";
+    private final static String Time5 = "19:00-22:00";
 
 
     private static PlaceOrderDatas mInstance;
@@ -30,22 +41,22 @@ public class PlaceOrderDatas implements PlaceOrderContract.Model {
         counts = new ArrayList<>();
         times  = new ArrayList<>();
 
-        dates.add("2017-4-23");
+        long today = new Date().getTime();
+        long oneDay = 1000*60*60*24;
+//        long oneHour = 1000*60*60;
+        SimpleDateFormat simpleDateFormatForDay = new SimpleDateFormat("yyyy-MM-dd");
+//        SimpleDateFormat simpleDateFormatForHour = new SimpleDateFormat("HH:mm");
 
-        dates.add("2017-4-23");
-        dates.add("2017-4-23");
-        dates.add("2017-4-23");
-        dates.add("2017-4-23");
-        counts.add(1);
-        counts.add(2);
-        counts.add(3);
-        counts.add(4);
-        counts.add(5);
-        times.add("7:00-9:00");
-        times.add("7:00-9:00");
-        times.add("7:00-9:00");
-        times.add("7:00-9:00");
-        times.add("7:00-9:00");
+        for (int i = 0; i < 7; i++) {
+            dates.add(simpleDateFormatForDay.format(new Date(today+i*oneDay)));
+        }
+
+
+        times.add(Time1);
+        times.add(Time2);
+        times.add(Time3);
+        times.add(Time4);
+        times.add(Time5);
     }
 
     @Override

@@ -11,6 +11,10 @@ public class HistoryPresenter implements HistoryContract.Presenter {
     private HistoryContract.View view;
     private HistoryContract.Model model;
 
+    public OrderAdapter getAdapter() {
+        return adapter;
+    }
+
     private OrderAdapter adapter;
 
     private static HistoryPresenter mInstance;
@@ -41,7 +45,10 @@ public class HistoryPresenter implements HistoryContract.Presenter {
     }
 
 
-
+    @Override
+    public void notifyDataSetChange() {
+        adapter.notifyDataSetChanged();
+    }
 
     @Override
     public void setAdapterOnRecyclerView() {

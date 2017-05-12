@@ -3,12 +3,14 @@ package com.example.administrator.omg.PlaceOrder;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.IntegerRes;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.NumberPicker;
 import android.widget.TextView;
 
 import com.example.administrator.omg.AppContants;
@@ -30,7 +32,7 @@ public class PlaceOrderFragment extends Fragment implements View.OnClickListener
     private CardView date;
     private CardView time;
     private CardView count;
-    private CardView desc;
+//    private CardView desc;
 
     private PlaceOrderContract.Presenter presenter;
 
@@ -56,6 +58,8 @@ public class PlaceOrderFragment extends Fragment implements View.OnClickListener
         super.onCreate(savedInstanceState);
         PlaceOrderPresenter.initPresenter(this,new PlaceOrderDatas());
         presenter = PlaceOrderPresenter.getInstance();
+        presenter.getCurOrder().setSinglePrice(court.getPrice());
+        presenter.getCurOrder().setSportType(court.getTitle());
     }
 
     @Override
@@ -67,7 +71,7 @@ public class PlaceOrderFragment extends Fragment implements View.OnClickListener
         date = (CardView) rootView.findViewById(R.id.choose_date);
         time = (CardView) rootView.findViewById(R.id.choose_time);
         count = (CardView) rootView.findViewById(R.id.choose_count);
-        desc = (CardView) rootView.findViewById(R.id.choose_desc);
+//        desc = (CardView) rootView.findViewById(R.id.choose_desc);
 
 //        order_detail = (ExpandableListView) rootView.findViewById(R.id.order_detail);
 //        ExpandableListAdapter adapter = presenter.getExpandListAdapter();
@@ -87,12 +91,15 @@ public class PlaceOrderFragment extends Fragment implements View.OnClickListener
         date.setOnClickListener(this);
         time.setOnClickListener(this);
         count.setOnClickListener(this);
-        desc.setOnClickListener(this);
+//        desc.setOnClickListener(this);
+
 
         initDetail();
 
         return rootView;
     }
+
+
 
     void initDetail(){
         String introduction = court.getDesc();
@@ -132,12 +139,12 @@ public class PlaceOrderFragment extends Fragment implements View.OnClickListener
             case R.id.choose_time:
                 intent.putExtra(AppContants.CHOOSE_TYPE,PickActivity.PICK_TIME);
                 break;
-            case R.id.choose_count:
-                intent.putExtra(AppContants.CHOOSE_TYPE,PickActivity.PICK_COUNT);
-                break;
-            case R.id.choose_desc:
-                intent.putExtra(AppContants.CHOOSE_TYPE,PickActivity.PICK_DESC);
-                break;
+//            case R.id.choose_count:
+//                intent.putExtra(AppContants.CHOOSE_TYPE,PickActivity.PICK_COUNT);
+//                break;
+//            case R.id.choose_desc:
+//                intent.putExtra(AppContants.CHOOSE_TYPE,PickActivity.PICK_DESC);
+//                break;
             default:
                 return;
         }
@@ -158,14 +165,22 @@ public class PlaceOrderFragment extends Fragment implements View.OnClickListener
     }
 
     @Override
-    public void setPickCount(Integer count) {
-        TextView tv = (TextView) this.count.findViewById(R.id.tv_count);
-        tv.setText(""+count);
+    public void addCount() {
+        TextView textView = (TextView) this.count.findViewById(R.id.count_num);
+        int c = Integer.parseInt(textView.getText().toString())+1;
+        textView.setText(c+"");
+    }
+
+    @Override
+    public void decCount() {
+        TextView textView = (TextView) this.count.findViewById(R.id.count_num);
+        int c = Integer.parseInt(textView.getText().toString())-1;
+        textView.setText(c+"");
     }
 
     @Override
     public void setPickDesc(String desc) {
-        TextView tv = (TextView) this.desc.findViewById(R.id.tv_desc);
-        tv.setText(desc);
+//        TextView tv = (TextView) this.desc.findViewById(R.id.tv_desc);
+//        tv.setText(desc);
     }
 }
